@@ -1,0 +1,31 @@
+version: "3"
+services:
+  ubuntu:
+    build:
+      context: .
+    image: ubuntu:localbuild
+    container_name: ubuntu
+    hostname: ubuntu
+    command: ['/bin/bash','-l']
+    tty: true
+    stdin_open: true
+    volumes:
+      - type: volume
+        source: pip_cache
+        target: /home/sjinxin/.cache/pip
+      - type: volume
+        source: ssh
+        target: /home/sjinxin/.ssh
+      - type: volume
+        source: data
+        target: /home/sjinxin/data
+      - type: bind
+        source: E:/docker-shared
+        target: /home/sjinxin/shared
+volumes:
+  pip_cache:
+    external: true
+  ssh:
+    external: true
+  data:
+    external: true

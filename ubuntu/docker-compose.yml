@@ -19,9 +19,6 @@ services:
       - type: volume
         source: data
         target: /home/sjinxin/data
-      - type: bind
-        source: E:/docker-shared
-        target: /home/sjinxin/shared
 volumes:
   pip_cache:
     external: true

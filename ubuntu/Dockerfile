@@ -18,5 +18,5 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER $USER
 WORKDIR $HOME
 # Create entrypoint script
-COPY entrypoint.sh /sbin/
-ENTRYPOINT ["/sbin/entrypoint.sh"]
+COPY --chown=root:root entrypoint.sh /sbin/
+#ENTRYPOINT ["/sbin/entrypoint.sh"]
